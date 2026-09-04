@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MN Market Link</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Checkout Overlay -->
+    <div id="checkout_overlay">
+        <button id="close_checkout">Close</button>
+        <div class="checkout_content">
+            <div id="cartSection">
+                <div id="cartSummary">
+                    <h1>Cart Summary</h1>
+                    <div id="cartItems">
+
+                        <div class="headerRow">
+                            <span class="leftRow">Product</span>
+                            <span class="middleRow">Quantity</span>
+                            <span class="rightRow">Price</span>
+                            <span class="xRow"></span>
+                        </div>
+
+                        <div class="cartItems">
+                            <div class="itemRow">
+                                <span class="itemName">Apple</span>
+                                <div class="quantityControls">
+                                    <button class="decreaseBtn">&lt</button>
+                                    <span class="itemQuantity">1</span>
+                                    <button class="increaseBtn">&gt</button>
+                                </div>
+                                <span class="itemPrice">$2.00</span>
+                                <span class="removeBtn">X</span>
+                            </div>
+
+                            <div class="itemRow">
+                                <span class="itemName">Pear</span>
+                                <div class="quantityControls">
+                                    <button class="decreaseBtn">&lt</button>
+                                    <span class="itemQuantity">1</span>
+                                    <button class="increaseBtn">&gt</button>
+                                </div>
+                                <span class="itemPrice">$4.00</span>
+                                <span class="removeBtn">X</span>
+                            </div>
+
+                            <div class="itemRow">
+                                <span class="itemName">Apricot</span>
+                                <div class="quantityControls">
+                                    <button class="decreaseBtn">&lt</button>
+                                    <span class="itemQuantity">1</span>
+                                    <button class="increaseBtn">&gt</button>
+                                </div>
+                                <span class="itemPrice">$5.00</span>
+                                <span class="removeBtn">X</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cartTotal">
+                    <span id="totalLabel">Total:</span>
+                    <span id="totalAmount">$11.00</span>
+                </div>
+
+            </div>
+
+            <div id="checkoutSection">
+                <div id="checkout">
+                    <h1>Checkout</h1>
+                    <form id="checkoutForm">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="John" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="John@example.com" required>
+
+                        <p>Be prepared to pay when picking up your Order.</p>
+                        <p>Thanks for shopping with us!</p>
+
+                        <button type="submit" id="placeOrderBtn">Place Order</button>
+                        <p>An order confirmation will be sent to your email along with pickup instuctions.</p>
+                        </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Market Details Overlay -->
+    <div id="details_overlay">
+        <div class="details_content">
+            <button id="close_details">Close</button>
+            <h2 id="marketName">Farmers Market A</h2>
+            <h3 id="marketAddress">123 Main St</h3>
+            <h3 id="marketHours">Hours: 9AM - 4PM</h3>
+            
+            <div id="list_container">
+                <div id="vendorsList">
+                    <h4>2 Vendors:</h4>
+                    <ul>
+                        <li class="vendorItem">Dorans Produce</li>
+                        <li class="vendorItem">Butch Family Farms</li>
+                    </ul>
+                </div>
+                
+                <div id="productsList">
+                    <h4>10 Products:</h4>
+                    <ul>
+                        <li>Apple</li>
+                        <li>Orange</li>
+                        <li>Banana</li>
+                        <li>Mango</li>
+                        <li>Watermelon</li>
+                        <li>Grapes</li>
+                        <li>Pineapple</li>
+                        <li>Pear</li>
+                        <li>Plum</li>
+                        <li>Apricot</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <header id="directory_head">
+        <div class="logo_containter">
+            <img src="../images/Logo.png" alt="Logo" id="logo_directory">
+        </div>
+        
+        <div class="search_container">
+            <form class="search_bar">
+                <input type="search" id="searchInput" name="q" placeholder="Search for markets, vendors, or products">
+                <button onclick="searchResults(event)" type="submit">
+                <img src="../images/search.png">
+                </button>
+            </form>
+        </div>
+        
+        <img src="../images/cart.png" alt="shopping cart" id="cart_icon">
+        <p id="cart_count">0</p>
+    </header>
+
+    <main id="directory_main">
+        <div class="background_img"></div>
+        <h1>Market Directory</h1>
+        
+        <div id="marketList">
+            <div class="marketItem">
+                <h2 id="marketName">Farmers Market A</h2>
+                <p id="marketAddress">123 Main St</p>
+                <p id="openHours">Open 6AM - 6PM</p>
+                <p id="marketVendors">2 Vendors</p>
+                <p id="marketProducts">10 Products</p>
+            </div>
+            <div class="marketItem">
+                <h2 id="marketName">Farmers Market B</h2>
+                <p id="marketAddress">123 Main St</p>
+                <p id="openHours">Open 6AM - 6PM</p>
+                <p id="marketVendors">2 Vendors</p>
+                <p id="marketProducts">10 Products</p>
+            </div>
+            <div class="marketItem">
+                <h2 id="marketName">Farmers Market C</h2>
+                <p id="marketAddress">123 Main St</p>
+                <p id="openHours">Open 6AM - 6PM</p>
+                <p id="marketVendors">2 Vendors</p>
+                <p id="marketProducts">10 Products</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p id="copyright">&copy; 2025</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
+

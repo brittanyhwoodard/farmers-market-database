@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MN Market Link</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="background_img"></div>
+        
+        <div class="logo_containter">
+            <img src="../images/Logo.png" alt="Logo" id="logo">
+        </div>
+
+        <div class="search_container">
+            <h1>Find Local Farmers Near You</h1>
+            <form class="search_bar">
+                <input type="search" id="searchInput" name="q" placeholder="Search for markets, vendors, or products">
+                <button onclick="searchResults()" type="submit">
+                <img src="../images/search.png">
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <div id="features">
+            <div class="featureBox" id="support">
+                <div class="feature_img"></div> <h3>Support Local Buisness</h3>
+            </div>
+            <div class="featureBox" id="preorder">
+                <div class="feature_img"></div> <h3>Easy Pre-Order</h3>
+            </div>
+            <div class="featureBox" id="explore">
+                <div class="feature_img"></div> <h3>Explore New Markets</h3>
+            </div>
+        </div>
+
+        <div id="buttonBox">
+            <a class="button" href="directory.html">Browse All Markets</a>
+        </div>
+    </main>
+
+    <footer>
+        <p id="copyright">&copy; 2025</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

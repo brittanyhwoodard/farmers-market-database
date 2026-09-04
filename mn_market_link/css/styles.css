@@ -1,0 +1,992 @@
+/*
+|--------------------------------------------------------------------------
+| 1. CSS VARIABLES (Root)
+|--------------------------------------------------------------------------
+| Defines the color palette and typography variables for easy maintenance.
+*/
+:root{
+    /* Colors */
+    --green: #3D8B37;
+    --yellow: #F4c430;
+    --white: #F9F9F9;
+    --black: #2E2E2E;
+    --brown: #A47148;
+
+    /* Fonts */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+/*
+|--------------------------------------------------------------------------
+| 2. BASE STYLES & TYPOGRAPHY
+|--------------------------------------------------------------------------
+| Global reset and default styling for the body and core text elements.
+*/
+/* Reset for button-like elements */
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: none;
+}
+
+/* Global Body Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    background-color: var(--white);
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+}
+
+/*
+|--------------------------------------------------------------------------
+| 3. LAYOUT STRUCTURE (Header, Main, Footer)
+|--------------------------------------------------------------------------
+| Styles for the primary structural elements of the page.
+*/
+
+/* --- Header Styles --- */
+header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--brown);
+    color: var(--white);
+    width: auto;
+    height: 40%; /* Main Header height */
+    overflow: hidden;
+}
+
+#directory_head {
+    height: 14%; /* Directory page header height */
+    padding-left: 20px;
+    justify-content: left;
+    background-color: var(--green);
+    border-bottom: 1px solid var(--black);
+    z-index: 2;
+}
+
+/* Background Image Common Style */
+.background_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/background_A.png'); /* Default background image */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.14;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- Main Content Styles --- */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    width: auto;
+    height: 58%;
+}
+
+/* Directory Page Main */
+#directory_main {
+    position: relative;
+    height: 86%;
+    overflow: hidden;
+}
+
+#directory_main .background_img {
+    background-image: url('../images/Explore_Background.jpg');
+    opacity: 0.24;
+}
+
+#directory_main h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+    align-self: flex-start;
+    padding-left: 4vw;
+    text-shadow: rgba(0, 0, 0, 0.1) 2px 2px 4px;
+    z-index: 4;
+}
+
+/* Search Page Main */
+#search_main {
+    position: relative;
+    height: 86%;
+    overflow: hidden;
+}
+
+#search_main .background_img {
+    background-image: url('../images/Explore_Background.jpg');
+    opacity: 0.24;
+}
+
+#search_main h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    align-self: flex-start;
+    padding-left: 2.8vw;
+    text-shadow: rgba(0, 0, 0, 0.1) 2px 2px 4px;
+    z-index: 4;
+}
+
+/* --- Features Section (on Main Page) --- */
+#features {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    width: 100vw;
+    height: 42vh;
+}
+
+/* --- Footer Styles --- */
+footer {
+    padding: 2px;
+    height: 4%;
+    border-top: 3px solid var(--brown);
+    background-color: var(--white);
+    z-index: 3;
+}
+
+#copyright {
+    padding-bottom: 2px;
+    padding-right: 10px;
+    line-height: 4%;
+    color: var(--brown);
+    font-size: 14px;
+    text-align: right;
+}
+
+/*
+|--------------------------------------------------------------------------
+| 4. COMPONENTS
+|--------------------------------------------------------------------------
+| Styles for reusable UI elements (Logo, Search, Buttons, Feature Boxes, Lists).
+*/
+
+/* --- Logo & Cart Icon --- */
+.logo_containter {
+    align-self: center;
+    width: auto;
+    z-index: 1;
+}
+
+#logo { /* Main Logo */
+    height: 32vh;
+    width: auto;
+    margin: 10px;
+}
+
+#logo_directory { /* Directory Page Logo */
+    height: 10vh;
+    width: auto;
+    margin: 10px;
+    z-index: 99;
+}
+
+#cart_icon {
+    position: absolute;
+    top: 30%;
+    right: 28px;
+    width: 32px;
+    height: 32px;
+    z-index: 20;
+    cursor: pointer;
+}
+
+#cart_count {
+    position: absolute;
+    top: 32%;
+    right: 40px;
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: 50%;
+    border: 2px solid var(--green);
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    z-index: 25;
+    cursor: pointer;
+}
+
+/* --- Search Bar --- */
+.search_container {
+    align-self: center;
+    padding-left: 34px;
+    padding-bottom: 40px;
+    flex-grow: 0.5;
+    z-index: 1;
+}
+
+#directory_head .search_container {
+    padding-left: 12px;
+    padding-bottom: 10px;
+}
+
+.search_container h1{
+    text-shadow: rgba(0, 0, 0, 0.1) 2px 2px 4px;
+}
+
+.search_bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 8px 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search_bar input[type="search"]{
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px 10px;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+.search_bar input[type="search"]::placeholder {
+    color: #a4714888;
+}
+
+.search_bar button {
+    border: none;
+    background: none;
+    padding-top: 4px;
+    cursor: pointer;
+}
+
+/* --- Feature Boxes (Homepage) --- */
+.featureBox {
+    position: relative;
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 25%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.feature_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.featureBox h3 {
+    font-size: 1.5em;
+    text-shadow: rgba(0, 0, 0, 0.1) 2px 2px 4px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Specific Feature Backgrounds */
+#support .feature_img {
+    background-image: url('../images/Support_Background.jpg');
+}
+
+#preorder .feature_img {
+    background-image: url('../images/Preorder_Background.jpg');
+}
+
+#explore .feature_img {
+    background-image: url('../images/Explore_Background.jpg');
+}
+
+/* --- Buttons (Global) --- */
+#buttonBox {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+}
+
+#buttonBox a {
+    text-decoration: none;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.08em;
+}
+
+.button {
+    width: 100%;
+    height: 60px;
+    background-color: var(--brown);
+    border: 1px solid var(--yellow);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-sizing: border-box;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: inherit;
+    outline: none;
+    outline: 0;
+    padding: 10px 25px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button:hover {
+    box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+    border: 2px solid var(--yellow);
+    background-color: #a06d43;
+    transform: translateY(-2px);
+}
+
+/* --- Market List (Directory) --- */
+#marketList {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.marketItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40px;
+    padding-left: 15px;
+    background-color: #f9f9f9ec;
+    border-top: 2.8px solid var(--green);
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.marketItem h2 {
+    width: 20vw;
+    font-size: 1.2em;
+    text-align: left;
+    line-height: 10px;
+}
+
+.marketItem p {
+    width: 16vw;
+    font-size: 0.9em;
+    text-align: center;
+    line-height: 10px;
+}
+
+.marketItem:hover {
+    background-color: #d0e7d1e1;
+    cursor: pointer;
+}
+
+/*
+|--------------------------------------------------------------------------
+| 5. DETAILS OVERLAY
+|--------------------------------------------------------------------------
+| Styles for the window used to display market/vendor details.
+*/
+
+#details_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #a4714856;
+    backdrop-filter: blur(1px);
+    display: none; /* Hidden Overlay, display: block when shown */
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.details_content {
+    background-color: var(--white);
+    border-radius: 12px;
+    position: absolute;
+    top: 14%;
+    left: 19%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--green);
+    padding: 40px;
+    width: 60%;
+    height: 60%;
+    overflow-y: auto;
+}
+
+.details_content h2 {
+    margin: 0;
+    font-size: 1.8em;
+    text-align: left;
+}
+
+.details_content h3 {
+    display: inline-block;
+    margin: 4px;
+    font-size: 1.15em;
+    line-height: 1.6;
+    text-align: auto;
+}
+
+#marketHours {
+    position: absolute;
+    right: 2.2%;
+}
+
+/* Close Button */
+#close_details {
+    position: absolute;
+    top: 4.2%;
+    right: 2.2%;
+    background-color: var(--white);
+    color: var(--green);
+    border: 2px solid var(--green);
+    border-radius: 5%;
+    width: 52px;
+    height: 24px;
+    font-size: 14x;
+    cursor: pointer;
+}
+
+#close_details:hover {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+#close_details:active {
+    transform: translateY(2px);
+}
+
+/* --- Vendor/Product Lists within the Overlay --- */
+#list_container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    height: 80%;
+}
+
+#vendorsList {
+    flex: 1;
+    min-width: 30%;
+    padding-right: 20px;
+    overflow-y: auto;
+}
+
+#productsList {
+    flex: 2;
+    min-width: 60%;
+    overflow-y: auto;
+}
+
+#vendorsList h4, #productsList h4 {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 0;
+    color: var(--brown);
+    background-color: #c0ad9d3b;
+    border-bottom: none;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    cursor: default;
+}
+
+#vendorsList ul, #productsList ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#vendorsList ul {
+    display: flex;
+    flex-direction: column;
+    height: 82%;
+    gap: 8px;
+    padding-top: 8px;
+    background-color: #c0ad9d3b;
+}
+
+#productsList ul {
+    display: grid;
+    height: 82%;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-auto-rows: 32px;
+    align-items: start;
+    gap: 8px;
+    padding: 8px;
+    background-color: #c0ad9d3b;
+}
+
+#vendorsList li, #productsList li {
+    background-color: #ddcdc0;
+    color: var(--black);
+    padding: 8px 10px;
+    border-radius: 2px;
+    font-size: 0.95em;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+#vendorsList li:hover {
+    border-top: 1px solid var(--green);
+    border-bottom: 1px solid var(--green);
+}
+
+#vendorsList li:active {
+    background-color:  #d1bfb0;
+}
+
+#productsList li:hover {
+    background-color: #e6d9cc;
+}
+
+/* Styling for the Add/Remove Button (The '+' symbol) */
+#productsList li:after {
+    content: '+';
+    background-color: #c9b49e;
+    color: #4a4a4a;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-left: 10px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#productsList li:hover:after {
+    background-color: var(--white);
+    color: var(--green);
+}
+
+#productsList li:active:after {
+    transform: translateY(2px);
+}
+
+/*
+|--------------------------------------------------------------------------
+| 6. CHECKOUT OVERLAY
+|--------------------------------------------------------------------------
+| Styles for the window used to display cart and checkout details.
+*/
+
+#checkout_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #a4714856;
+    backdrop-filter: blur(1px);
+    display: none; /* Hidden Overlay, display: block when shown */
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.checkout_content {
+    background-color: var(--green);
+    display: grid;
+    grid-template-rows: 50% 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.6);
+    width: 38%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: clip;
+}
+
+#close_checkout {
+    position: absolute;
+    top: 20px;
+    left: 60vw;
+    background-color: #e6e6e6;
+    color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 6px 6px 0 0;
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.6);
+    width: 58px;
+    height: 24px;
+    font-size: 14px;
+    transform: rotate(-90deg);
+    cursor: pointer;
+    z-index: 15;
+}
+
+#close_checkout:hover {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+#close_checkout:active {
+    border: 1px solid var(--white);
+    transform: translateX(2px) rotate(-90deg);
+}
+
+/* --- Cart Summary Section --- */
+#cartSection {
+    color: var(--white);
+    padding-left: 25px;
+    padding-bottom: 15px;
+    overflow-y: scroll;
+}
+
+#cartItems {
+    display: grid;
+    grid-template-columns: 5fr 4fr 2fr 1fr;
+    row-gap: 4px;
+    padding-right: 1rem;
+    padding-top: 8px;
+}
+
+.headerRow {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 5fr 4fr 2fr 1fr;
+    font-size: 10pt;
+    font-weight: 400;
+    border-bottom: 2px solid var(--white);
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.cartItems {
+    display: contents;
+}
+
+.itemRow {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 5fr 4fr 2fr 1fr;
+    background-color: #f9f9f928;
+    align-items: center;
+    padding: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.leftRow { grid-column: 1 / 2; } /* Product Column */
+.middleRow { grid-column: 2 / 3; text-align: center; } /* Quantity Column */
+.rightRow { grid-column: 3 / 4; text-align: right; } /* Price Column */
+.xRow { grid-column: 4 / 5; } /* X Column */
+
+.itemName {
+    font-size: 12pt;
+    font-weight: 500;
+}
+
+.itemPrice {
+    text-align: right;
+    font-size: 12pt;
+    font-weight: 400;
+}
+
+/* Quantity Controls */
+.quantityControls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.itemQuantity {
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    width: 2rem;
+    text-align: center;
+    font-family: monospace;
+}
+
+.decreaseBtn, .increaseBtn {
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.15s ease;
+}
+
+.decreaseBtn {
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+}
+
+.increaseBtn {
+    border-top-right-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+}
+
+.decreaseBtn:hover, .increaseBtn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--white);
+}
+
+.decreaseBtn:active, .increaseBtn:active {
+    background-color: rgba(255, 255, 255, 0.034);
+}
+
+/* Remove Button */
+.removeBtn {
+    text-align: right;
+    color: #d86b6b79;
+    font-weight: 800;
+    font-size: 8pt;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.removeBtn:hover {
+    color: #fecaca;
+}
+
+#cartTotal {
+    display: flex;
+    position: absolute;
+    bottom: 50%;
+    flex-direction: row;
+    justify-content: right;
+    gap: 20%;
+    width: 93%;
+    height: fit-content;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 6px;
+    border-top: 2px solid var(--white);
+    background-color: var(--green);
+}
+
+#cartTotal span {
+    font-family: var(--font-heading);
+    font-weight: 500;
+}
+
+/* --- Checkout Info Section --- */
+#checkoutSection {
+    height: 100%;
+    background-color: #e6e6e6;
+    color: var(--black);
+    padding-left: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font: inherit;
+}
+
+#checkout {
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    margin-right: 20px;
+}
+
+#checkoutForm {
+    position: relative;
+    left: 16%;
+}
+
+#checkoutForm label {
+    font-family: var(--font-heading);
+    display: inline-block;
+    min-width: 20%;
+    padding-bottom: 20px;
+}
+
+#checkoutForm input {
+    width: 60%;
+    height: 20px;
+    border: 1px solid #c9c7c7;
+    border-radius: 6px;
+    padding: 2px;
+    padding-left: 8px;
+}
+
+#checkoutForm p {
+    position: relative;
+    right: 16%;
+    text-align: right;
+    font-size: 10.8pt;
+    margin: 4px;
+}
+
+/* Checkout Button */
+#checkoutForm button {
+    position: relative;
+    left: 16%;
+    width: 36%;
+    height: 48px;
+    background-color: var(--green);
+    border: 1px solid var(--yellow);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-sizing: border-box;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: var(--font-heading);
+    outline: none;
+    outline: 0;
+    margin-top: 6%;
+    margin-bottom: 12px;
+    padding: 10px 25px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+}
+
+#checkoutForm button:hover {
+    box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+    border: 2px solid var(--yellow);
+    background-color: #3d9139;
+    transform: translateY(-2px);
+}
+
+#checkoutForm button:active {
+    background-color: #347e31;
+    transform: translateY(1px);
+}
+
+/*
+|--------------------------------------------------------------------------
+| 7. SEARCH RESULTS PAGE
+|--------------------------------------------------------------------------
+| Styles for the search page.
+*/
+
+.searchLayout {
+    display: flex;
+    column-gap: 28px;
+    width: 95%;
+    height: 85%;
+    z-index: 4;
+}
+
+/* Search Results List */
+#results {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 80%;
+    background-color: #f9f9f9d0;
+    border-top: 4px solid var(--green);
+    border-bottom: 4px solid var(--green);
+    overflow-y: scroll;
+}
+
+.searchResult {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 36px;
+    padding: 12px 6px 12px 6px;
+    border-bottom: 1.6px solid #3d8b3767;
+}
+
+.searchResult:hover {
+    background-color: #f9f9f9d0;
+}
+
+.searchResult h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding-left: 12px;
+    width: 20%;
+}
+
+/* Search Results Button */
+.searchResult button {
+    background-color: var(--green);
+    color: var(--white);
+    border: 1px solid var(--yellow);
+    padding: 4px 22px;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-size: 0.90rem;
+    cursor: pointer;
+    transition: background-color 150ms ease, transform 120ms ease, box-shadow 150ms ease, border-color 150ms ease;
+    margin-left: auto;
+    margin-right: 18px;
+    align-self: center;
+}
+
+.searchResult button:hover {
+    background-color: #347e31;
+    transform: translateX(-2px);
+    border-color: #f4c430;
+}
+
+.searchResult button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Search Sidebar */
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+    overflow-y: hidden;
+}
+
+#sidebar .note {
+    padding: 8px 10px 8px 10px;
+    background-color: #f9f9f9d0;
+    border-top: 4px solid var(--green);
+    border-bottom: 4px solid var(--green);
+    font-family: var(--font-body);
+    line-height: 120%;
+
+}
+
